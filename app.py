@@ -4,7 +4,7 @@ import os
 
 # Config
 genai.configure(api_key=os.environ["GEMINI_API_KEY"])
-model = genai.GenerativeModel("gemini-1.5-flash")
+model = genai.GenerativeModel("gemini-2.0-flash")
 
 # Page setup
 st.set_page_config(page_title="PM Case Study Analyzer", page_icon="🔍")
