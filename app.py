@@ -1,10 +1,9 @@
 import streamlit as st
-import google.generativeai as genai
+from google import genai
 import os
 
 # Config
-genai.configure(api_key=os.environ["GEMINI_API_KEY"])
-model = genai.GenerativeModel("gemini-3-flash")
+client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
 
 # Page setup
 st.set_page_config(page_title="PM Case Study Analyzer", page_icon="🔍")
@@ -43,5 +42,8 @@ Rate the product opportunity from 1-10 and explain why in 2 sentences.
 Be specific, concise, and think like a PM.
 """
 
-        response = model.generate_content(prompt)
+        response = client.models.generate_content(
+            model="gemini-2.0-flash",
+            contents=prompt
+        )
         st.markdown(response.text)
