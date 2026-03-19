@@ -1,2 +1,4 @@
 streamlit
-google-genai
+anthropic
+PyPDF2
+python-docx
